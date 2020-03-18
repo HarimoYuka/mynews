@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function add()
     {
-        return view(admin.newa.create);
+        return view(admin.news.create);
     }
 }
 
