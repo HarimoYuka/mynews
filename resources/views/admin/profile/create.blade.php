@@ -8,6 +8,18 @@
         <title>MyNews</title>
     </head>
     <body>
-        <h1>Profile作成画面</h1>
+        <h1>プロフィール作成画面</h1>
     </body>
 </html>
+
+@extends('layouts.profile')
+@section('title', 'プロフィールの作成')
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Myプロフィール</h2>
+            </div>
+        </div>
+    </div>
+@endsection
