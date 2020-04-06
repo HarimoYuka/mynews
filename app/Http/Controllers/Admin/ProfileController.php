@@ -21,6 +21,13 @@ class ProfileController extends Controller
         $profiles = new Profile;
         $form = $request->all();
         
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/image');
+            $profiles->image_path = basename($path);
+        } else {
+                $profiles->image_path = null;
+        }
+        
         unset($form['_token']);
         unset($form['image']);
         
@@ -30,13 +37,45 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('admin.profile.edit');
+        $profiles = Profile::find($request->id);
+        if (empty($profiles)) {
+            abort(404);
+        }
+        return view('admin.profile.edit', ['profiles_form' => $profiles]);
     }
     
-    public function update()
+    public function index(Request $request)
     {
-        return redirect('admin/profile/edit');
+        $cond_title = $request->cond_title;
+        if ($cond_title !='') {
+            $posts = Profile::where('name', $cond_title)->get();
+        } else {
+            $posts = Profile::all();
+        }
+        return view('admin.profile.index', ['posts' => $posts, 
+        'cond_title' => $cond_title]);
+    }
+    
+    public function update(Request $request)
+    {
+        $this->validate($request,Profile::$rules);
+        $profiles = Profile::find($request->id);
+        $profiles_form = $request->all();
+        unset($profiles_form['_token']);
+        $profiles->fill($profiles_form)->save();
+        return redirect('admin/profile');
+    }
+    
+    public function delete(Request $request)
+    {
+        $profiles = Profile::find($request->id);
+        $profiles->delete();
+        return redirect('admin/profile/');
     }
 }
+
+//ProfileControllerを編集して、admin/profile/create
+//から送信されてきたフォーム情報をデータベースに
+//保存するようにしましょう。(ヒント: NewsController 参照)
