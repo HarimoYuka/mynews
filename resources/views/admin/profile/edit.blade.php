@@ -9,19 +9,19 @@
     </head>
     <body>
         <h1>プロフィール編集画面</h1>
-    </body>
-    
-</html>
 
-/*
+
+
+<!--
 resources/views/admin/news/edit.blade.phpを参考にして、プロフィール編集画面用
 に、resources/views/admin/profile/edit.blade.php ファイルを作成してください。
 このファイルでは layouts/profile.blade.phpファイルを読み込み、
 またプロフィールのページであることがわかるように titleとcontentを編集しましょう。
 さらに、氏名(name)、性別(gender)、趣味(hobby)、自己紹介欄(introduction)を
 入力するフォームを作成してください。 また、formの送信先(<form action=” この部分”>)を、
-Admin¥ProfileController の update Action に指定してください。
-*/
+Admin¥ProfileController の update Action に指定してください
+-->
+
 
 @extends('layouts.profile')
 @section('title', 'プロフィールの編集')
@@ -75,7 +75,26 @@ Admin¥ProfileController の update Action に指定してください。
                         </div>
                     </div>
                 </form>
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        
+                         <ul class="list-group">
+                            @if ($profiles_form->profilehistories != NULL)
+                                @foreach ($profiles_form->profilehistories as $profilehistory)
+                                    <li class="list-group-item">{{ $profilehistory->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </<div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
+
+    </body>
+    
+</html>
+                        
+        

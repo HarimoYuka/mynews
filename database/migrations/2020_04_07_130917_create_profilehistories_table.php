@@ -4,30 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateProfilehistoriesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    
-    /**
-    * The table associated with the model.
-    *
-    * @var string
-    */
-    protected $table = 'user';
-     
-     
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('profilehistories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->integer('profilehistories_id');
+            $table->string('edited_at');
+            
             $table->timestamps();
         });
     }
@@ -39,6 +29,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('profilehistories');
     }
 }
