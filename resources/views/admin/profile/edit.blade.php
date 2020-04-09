@@ -37,21 +37,21 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="gender" rows="20">
-                            {{ $profiles_form->body }}</texarea>
+                            <input type="text" class="form-control" name="gender"
+                            value= "{{ $profiles_form->body }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hoby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hoby" rows="50">
+                            <textarea class="form-control" name="hoby" rows="5">
                             {{ $profiles_form->body }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="100">
+                            <textarea class="form-control" name="introduction" rows="15">
                             {{ $profiles_form->body }}</textarea>
                         </div>
                     </div>
@@ -67,9 +67,9 @@
                     <div class="col-md-4 mx-auto">
                         <h2>編集履歴</h2>
                          <ul class="list-group">
-                            @if ($profiles_form->profiles_histories != NULL)
-                                @foreach ($profiles_form->profiles_histories as $profiles_history)
-                                    <li class="list-group-item">{{ $profiles_history->edited_at }}</li>
+                            @if ($profiles_form->profi_histories != NULL)
+                                @foreach ($profiles_form->profi_histories as $profi_history)
+                                    <li class="list-group-item">{{ $profi_history->edited_at }}</li>
                                 @endforeach
                             @endif
                         </ul>

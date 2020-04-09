@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('news/delete', 'Admin\NewsController@delete');
 });
 
+Route::get('/', 'NewsController@index');
+
 
 //9-3.「http://XXXXXX.jp/XXX というアクセスが来たときに、
 //AAAControllerのbbbというAction に渡すRoutingの設定」

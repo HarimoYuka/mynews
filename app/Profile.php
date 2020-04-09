@@ -19,8 +19,8 @@ class Profile extends Model
         'introduction' => 'required',
         );
         
-        public function profiles_histories()
+        public function profi_histories()
         {
-            return $this->hasMany('App\ProfilesHistory');
+            return $this->hasMany('App\ProfiHistory');
         }
 }

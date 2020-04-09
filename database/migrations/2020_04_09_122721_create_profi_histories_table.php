@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfilesHistoriesTable extends Migration
+class CreateProfiHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class CreateProfilesHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::drop('users');
+                Schema::create('profi_histories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('profile_id');
+            $table->string('edited_at');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateProfilesHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('profi_histories');
     }
 }

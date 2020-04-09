@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Profile;
-use App\ProfilesHistory;
+use App\ProfiHistory;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
@@ -79,10 +79,10 @@ class ProfileController extends Controller
         unset($profiles_form['remove']);
         $profiles->fill($profiles_form)->save();
         
-        $profiles_history = new ProfilesHistory;
-        $profiles_history->profiles_id = $profiles->id;
-        $profiles_history->edited_at = Carbon::now();
-        $profiles_history->save();
+        $profi_history = new ProfiHistory;
+        $profi_history->profile_id = $profiles->id;
+        $profi_history->edited_at = Carbon::now();
+        $profi_history->save();
         
         return redirect('admin/profile/');
     }
