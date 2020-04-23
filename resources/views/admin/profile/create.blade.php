@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>MyNews</title>
-    </head>
-    <body>
-        <h1>プロフィール作成画面</h1>
-    </body>
-</html>
-
-<!--//13-4.【応用】 resources/views/admin/profile/create.blade.php を編集して、
-//氏名(name)、性別(gender)、趣味(hobby)、自己紹介欄(introduction)を
-//入力するフォームを作成してください。また、formの送信先(<form action=”この部分”>)を、 
-//Admin\ProfileController の create Action に指定してください。
-//(ヒント: resources/views/admin/news/create.blade.php)
--->
-
 @extends('layouts.profile')
 @section('title', 'プロフィールの作成')
 @section('content')

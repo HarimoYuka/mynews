@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>MyNews</title>
-    </head>
-    <body>
-        <h1>プロフィール編集画面</h1>
-
-
 @extends('layouts.profile')
 @section('title', 'プロフィールの編集')
 @section('content')
@@ -38,21 +25,19 @@
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="gender"
-                            value= "{{ $profiles_form->body }}">
+                            value= "{{ $profiles_form->gender }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hoby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hoby" rows="5">
-                            {{ $profiles_form->body }}</textarea>
+                            <textarea class="form-control" name="hoby" rows="5">{{ $profiles_form->hoby }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="15">
-                            {{ $profiles_form->body }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="15">{{ $profiles_form->introduction }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
